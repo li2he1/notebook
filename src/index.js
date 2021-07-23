@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const firebase = require('firebase');
-require('firebase/firestore');
+import firebase from 'firebase';
 
 var firebaseConfig = {
   apiKey: "AIzaSyCPqzS8DMMRO_0wQqCrrvhns1o1IRKhypA",
@@ -21,7 +19,7 @@ firebase.default.initializeApp(firebaseConfig);
 
 ReactDOM.render(
     <App />,
-  document.getElementById('root')
+  document.getElementById('notebook-container')
 );
 
 // If you want to start measuring performance in your app, pass a function
