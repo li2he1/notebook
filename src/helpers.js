@@ -1,4 +1,4 @@
-function debounce(a, b, c) {
+export default function debounce(a, b, c) {
     var d, e;
     return function () {
         function h() {
@@ -10,8 +10,6 @@ function debounce(a, b, c) {
     }
 }
 
-function removeHTMLTags(str) {
+export function removeHTMLTags(str) {
     return str.replace(/<[^>]*>?/gm, '');
 };
-
-export default {debounce,removeHTMLTags};

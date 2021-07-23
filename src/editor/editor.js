@@ -15,18 +15,30 @@ class EditorComponent extends React.Component {
     };
   }
 
+
+  updateBody = async (val) => {
+    await this.setState({ text: val });
+    this.update();
+  };
+
+  update = debounce(() => {
+    console.log('Updating Database');
+  }, 1500);
+
+
   render() {
 
     const { classes } = this.props;
 
     return(
       <div className={classes.editorContainer}>
-        <ReactQuill value={this.state.text}  />
+        <ReactQuill value={this.state.text} onChange={this.updateBody} />
         
 
       </div>
     );
   }
+
  
 }
 

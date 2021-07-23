@@ -54,3 +54,6 @@ const styles = theme => ({
       color: 'white'
     }
   });
+
+
+  export default styles;
