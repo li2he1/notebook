@@ -26,12 +26,12 @@ class SidebarComponent extends React.Component {
     console.log(this.state);
   }
 
-  selectNote = () => console.log('selectNote');
-  deleteNote = () => console.log('deleteNote');
+  selectNote = (n, i) => console.log('selectNote');
+  deleteNote = (note) => console.log('deleteNote');
 
   render() {
     const { notes, classes, selectedNoteIndex } = this.props;
-
+    if(notes){
     return(
         <div  className={classes.sidebarContainer}>
           <Button 
@@ -74,6 +74,9 @@ class SidebarComponent extends React.Component {
 
         </div>
       );
+    } else {
+      return(<div></div>);
+    }
   }
 
   
