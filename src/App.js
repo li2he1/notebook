@@ -29,12 +29,26 @@ export default class App extends React.Component {
       });
   }
 
+  selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
+
+
   render(){
     return (
       <div className="app-container">
         <SidebarComponent selectedNoteIndex={this.state.selectedNoteIndex}
-          notes={this.state.notes}/>
-        <EditorComponent/>
+          notes={this.state.notes}
+          selectNote={this.selectNote}
+          deleteNote={this.deleteNote}
+          newNote={this.newNote}
+          />
+         {
+          this.state.selectedNote ?
+          <EditorComponent selectedNote={this.state.selectedNote}
+          selectedNoteIndex={this.state.selectedNoteIndex}
+          notes={this.state.notes}
+          ></EditorComponent> :
+          null
+        }
       </div>
     );
 
