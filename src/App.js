@@ -5,7 +5,7 @@ import SidebarComponent from './sidebar/sidebar';
 import EditorComponent from './editor/editor';
 
 export default class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       selectedNoteIndex: null,
@@ -63,12 +63,12 @@ export default class App extends React.Component {
   deleteNote = async (note) => {
     const noteIndex = this.state.notes.indexOf(note);
     await this.setState({ notes: this.state.notes.filter(_note => _note !== note) });
-    if(this.state.selectedNoteIndex === noteIndex) {
+    if (this.state.selectedNoteIndex === noteIndex) {
       this.setState({ selectedNoteIndex: null, selectedNote: null });
     } else {
       this.state.notes.length > 1 ?
-      this.selectNote(this.state.notes[this.state.selectedNoteIndex - 1], this.state.selectedNoteIndex - 1) :
-      this.setState({ selectedNoteIndex: null, selectedNote: null });
+        this.selectNote(this.state.notes[this.state.selectedNoteIndex - 1], this.state.selectedNoteIndex - 1) :
+        this.setState({ selectedNoteIndex: null, selectedNote: null });
     }
 
     firebase
@@ -78,7 +78,7 @@ export default class App extends React.Component {
       .delete();
   }
 
-  render(){
+  render() {
     return (
       <div className="app-container">
         <SidebarComponent selectedNoteIndex={this.state.selectedNoteIndex}
@@ -86,20 +86,20 @@ export default class App extends React.Component {
           selectNote={this.selectNote}
           deleteNote={this.deleteNote}
           newNote={this.newNote}
-          />
-         {
+        />
+        {
           this.state.selectedNote ?
-          <EditorComponent selectedNote={this.state.selectedNote}
-          selectedNoteIndex={this.state.selectedNoteIndex}
-          notes={this.state.notes}
-          noteUpdate={this.noteUpdate}
-          ></EditorComponent> :
-          null
+            <EditorComponent selectedNote={this.state.selectedNote}
+              selectedNoteIndex={this.state.selectedNoteIndex}
+              notes={this.state.notes}
+              noteUpdate={this.noteUpdate}
+            ></EditorComponent> :
+            null
         }
       </div>
     );
 
   }
-  
+
 }
 

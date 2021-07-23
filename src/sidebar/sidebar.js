@@ -4,7 +4,6 @@ import styles from './styles';
 import List from '@material-ui/core/List';
 import { Divider, Button } from '@material-ui/core';
 import SidebarItemComponent from '../sidebaritem/sidebarItem';
-import { ControlCameraOutlined } from '@material-ui/icons';
 
 class SidebarComponent extends React.Component {
   constructor() {

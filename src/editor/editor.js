@@ -42,7 +42,7 @@ class EditorComponent extends React.Component {
   }
 
   componentDidUpdate = () => {
-    if(this.props.selectedNote.id !== this.state.id) {
+    if (this.props.selectedNote.id !== this.state.id) {
       this.setState({
         text: this.props.selectedNote.body,
         title: this.props.selectedNote.title,
@@ -56,7 +56,7 @@ class EditorComponent extends React.Component {
 
     const { classes } = this.props;
 
-    return(
+    return (
       <div className={classes.editorContainer}>
         <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
         <input
@@ -66,13 +66,13 @@ class EditorComponent extends React.Component {
           onChange={(e) => this.updateTitle(e.target.value)}>
         </input>
         <ReactQuill value={this.state.text} onChange={this.updateBody} />
-        
+
 
       </div>
     );
   }
 
- 
+
 }
 
 export default withStyles(styles)(EditorComponent);
